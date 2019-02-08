@@ -1,0 +1,22 @@
+---
+- hosts: all
+  become: yes
+  become_user: root
+  remote_user: vagrant
+  
+  tasks:
+
+
+  - name: Print the current system date
+    command: date
+    register: date
+
+
+  - name: Print current system date
+    debug: var=date.stdout
+
+
+
+    #apt: name=nginx state=installed
+    #command: service nginx restart
+
