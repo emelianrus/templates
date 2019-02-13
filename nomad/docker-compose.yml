@@ -1,0 +1,18 @@
+version: '3.6'
+
+services:
+
+  nomad1:
+    build:
+      context: ./nomaddir
+      dockerfile: Dockerfile
+    ports:
+      - 4646:4646
+      - 4647:4647
+      - 4648:4648
+    volumes:
+      - ./nomaddir:/nomaddir
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: agent -dev -config=/nomaddir/config/server.conf
+    cap_add:
+      - IPC_LOCK

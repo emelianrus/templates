@@ -2,7 +2,7 @@ version: '3.6'
 
 services:
 
-  vault:
+  consul:
     build:
       context: ./consul
       dockerfile: Dockerfile
